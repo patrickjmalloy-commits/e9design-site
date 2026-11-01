@@ -16,6 +16,9 @@ Fix everything it reports. The release workflow runs the same check.
 - Five public pages: Home, Simulators, How It Works, Showroom, Contact. Plus
   /thank-you/ (form landing) and 404, both noindex. Keep the site small.
 - Same menu on every page; one phone number, (513) 886-6654.
+- No email address on the site: E9 has no working mailbox yet (Nov 2026).
+  Visitors use the contact form. Add an address only once it is confirmed to
+  receive mail.
 - One palette, defined in css/site.css: pine #12343A, turf #2F6B3A, oak #C08A4E,
   cream #F6F3EC, ink #172426. No inline colours outside that set.
 - Every page: one h1, title, meta description, canonical, viewport.

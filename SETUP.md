@@ -88,7 +88,8 @@ Note: e9design.net currently points to an old WordPress host (IP 66.96.162.129),
 - Then: **Add new site → Import an existing project → GitHub → e9design-site**, with **Branch to deploy: `main`** and the same empty build settings. (If Patrick chose in 3a to reuse the existing E9 site, link that site to the repo instead: Site configuration → Build & deploy → Link repository, branch `main`.)
 - Rename it to `e9design` (or the closest available name).
 - Enable form detection and redeploy, as in 3b step 5.
-- **Form notifications:** Site configuration → Notifications → Emails and webhooks → **Add notification → Email notification** → event "New form submission", email `info@e9design.net`. **Ask Patrick first** whether that's the right address; the old site also used support@e9design.net.
+- **Form notifications:** Site configuration → Notifications → Emails and webhooks → **Add notification → Email notification** → event "New form submission". **Ask Patrick which inbox to use** — it must be one he actually reads today. Do NOT use info@ or support@e9design.net: those mailboxes are not set up.
+- Do the same on the **staging** site, so test submissions from Part 4 reach Patrick too.
 
 ### 3d. Tell GitHub the staging address
 
@@ -114,11 +115,11 @@ From then on, every change works this way: push to `staging` → check the stagi
 
 ## Part 5: Point e9design.net at Netlify (browser, ONLY with Patrick watching)
 
-**Risk:** e9design.net is registered and hosted somewhere other than Netlify. The old site's server is at 66.96.162.129, which looks like a Network Solutions / Web.com-type shared host (unconfirmed). The same company may host **E9's email** (info@ / support@e9design.net). Changing the wrong DNS records, or moving nameservers, can stop email from arriving.
+**Risk:** e9design.net's DNS is at **Domain.com** (nameservers ns1/ns2.domain.com, checked Nov 1 2026). Its MX (email) records point to Domain.com mail servers (`m1.dnsix.com`, `mx.e9design.net`). Patrick believes no E9 mailboxes are in use, but leave all email-related records alone anyway: deleting them can't help the website and could break email set up later.
 
 **Do this:**
 
-1. Ask Patrick where e9design.net is registered and who manages its DNS. If he isn't sure, look up the domain's nameservers (e.g. with a WHOIS lookup site) and report them.
+1. DNS is managed at Domain.com (https://www.domain.com). Patrick signs in there.
 2. Sign in to that DNS provider (Patrick signs in). **Screenshot or copy the full current DNS record list** before changing anything, and paste it into this chat. Pay special attention to MX and TXT records (email).
 3. In Netlify, open the **live** site → **Domain management → Add a domain** → `e9design.net`. Netlify will offer:
    - **Netlify DNS (changing nameservers): do NOT pick this** unless Patrick explicitly agrees after you've shown him the email (MX) records. It moves all DNS to Netlify, and email breaks if MX records aren't recreated exactly.
@@ -126,14 +127,13 @@ From then on, every change works this way: push to `staging` → check the stagi
 4. At the DNS provider, change **only** these records, using the values Netlify shows on screen (they're normally an A record for the bare domain pointing to Netlify's load-balancer IP, and a CNAME for `www` pointing to the site's `*.netlify.app` address):
    - `@` (bare domain) A record → the IP Netlify shows (replacing 66.96.162.129)
    - `www` → CNAME to the live site's `*.netlify.app` address
-   - **Do not edit or delete MX, TXT, SPF, DKIM, or any other records.**
+   - **Do not edit or delete MX, TXT, SPF, DKIM, or any other records** — including the `mx` host record (`mx.e9design.net`), which the email MX record points to.
 5. Back in Netlify: under Domain management, make `e9design.net` the **primary domain**. Wait for **HTTPS / SSL certificate** to show as provisioned (minutes to a few hours), then make sure **Force HTTPS** is on.
 6. Test: http://e9design.net, https://e9design.net and https://www.e9design.net should all end up on the new site at https://e9design.net. Old addresses like https://e9design.net/contact-us/ should redirect to the new pages.
-7. Ask Patrick to send a test email to info@e9design.net and confirm it arrives.
 
-**Leave the old WordPress hosting plan running for at least 30 days** after the switch, as a fallback. Cancelling it is Patrick's decision, and only after email is confirmed to be hosted elsewhere (or moved).
+**Leave the old WordPress hosting plan running for at least 30 days** after the switch, as a fallback. Cancelling it is Patrick's decision; check first whether the plan also includes the domain registration or email.
 
-**Report:** the DNS records before and after, SSL status, and the result of the email test.
+**Report:** the DNS records before and after, and SSL status.
 
 ---
 
@@ -154,5 +154,5 @@ From then on, every change works this way: push to `staging` → check the stagi
 | Netlify staging site | `e9design-staging` → branch `staging` |
 | Netlify live site | `e9design` → branch `main` → domain e9design.net |
 | Build settings | no build command, publish directory `.` |
-| Contact form | Netlify Forms, form name `contact`, notifications → info@e9design.net (confirm) |
+| Contact form | Netlify Forms, form name `contact`, notifications → an inbox Patrick reads (not info@/support@, which don't exist) |
 | Old site | WordPress at 66.96.162.129; keep for 30 days after switch |
