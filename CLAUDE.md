@@ -30,6 +30,8 @@ E9 is a new business. Do not claim past installs, client counts, reviews,
 "most popular", response times, or staff (e.g. instructors) that do not exist.
 
 Images:
+- E9 mainly installs overhead launch monitors (ProTee VX). Photos must not show
+  floor-standing launch monitors.
 - images/ai-*.{jpg,webp} are AI-generated (Figma AI image, Nov 2026). They are
   not E9 installs. Room photos (ai-basement, ai-garage, ai-commercial,
   ai-home-swing) are shown as examples of what E9 designs; where a room photo
