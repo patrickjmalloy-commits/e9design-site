@@ -15,9 +15,9 @@ from html.parser import HTMLParser
 
 # Pages that deliberately stay out of search.
 NOINDEX = {'404.html', 'thank-you/index.html'}
-PALETTE = {'--pine': '#12343A', '--turf': '#2F6B3A', '--oak': '#C08A4E',
-           '--cream': '#F6F3EC', '--ink': '#172426'}
-MENU = [('/simulators/', 'Simulators'), ('/how-it-works/', 'How It Works'),
+PALETTE = {'--black': '#0E0E0E', '--ink': '#141414', '--ivory': '#F7F3EC',
+           '--red': '#C8102E', '--red-light': '#FF6B6B', '--red-dark': '#B30E29'}
+MENU = [('/services/', 'Services'), ('/process/', 'Process'),
         ('/showroom/', 'Showroom'), ('/contact/', 'Contact')]
 PHONE = 'tel:+15138866654'
 
@@ -121,6 +121,14 @@ def check(path, s, errors):
     for tel in set(re.findall(r'href="(tel:[^"]+)"', s)):
         if tel != PHONE:
             err(f'phone link {tel}; the business number is {PHONE}')
+
+    # 8b. American English in page text.
+    text = re.sub(r'<[^>]+>', ' ', no_code)
+    british = (r'colour\w*|centre\w*|metre\w*|practis\w*|organis\w*|favourit\w*|'
+               r'neighbour\w*|honour\w*|behaviour\w*|grey|travelled|cancelled|licence|'
+               r'programme|analys(e|ed|es|ing)|enquir\w*|catalogue')
+    for w in sorted(set(m.group(0) for m in re.finditer(r'(?i)\b(' + british + r')\b', text))):
+        err(f'British spelling "{w}"; the site uses American English')
 
     # 9. Local links point at pages that exist.
     for href in set(re.findall(r'(?:href|src)="(/[^"#?]*)', s)):

@@ -63,7 +63,7 @@ jobs:
         run: |
           set -e
           sleep 60   # give Netlify time to publish this commit
-          for p in / /simulators/ /how-it-works/ /showroom/ /contact/; do
+          for p in / /services/ /process/ /showroom/ /contact/; do
             code=$(curl -s -o /tmp/p.html -w '%{http_code}' "$S$p")
             [ "$code" = "200" ] || { echo "QA FAIL: $p returned $code"; exit 1; }
             grep -q '</html>' /tmp/p.html || { echo "QA FAIL: $p truncated"; exit 1; }

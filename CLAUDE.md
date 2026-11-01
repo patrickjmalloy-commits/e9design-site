@@ -1,7 +1,9 @@
-# E9 Design site
+# Emergency Nine Design site
 
-Static HTML site for E9 Design (Emergency Nine Design), custom golf simulators,
-Mason OH. Hosted on Netlify. `staging` deploys to the Netlify staging site;
+Static HTML site for Emergency Nine Design (E9), Mason OH. **What E9 does:** it
+helps people design and build golf entertainment spaces (home golf rooms and
+commercial golf spaces). Simulators are part of those builds; E9 is NOT a
+"golf simulator company", so don't describe it that way. Hosted on Netlify. `staging` deploys to the Netlify staging site;
 `main` is production (e9design.net) and only moves when Patrick approves the
 "Promote staging to production" workflow. Never push or merge to `main` directly.
 
@@ -19,14 +21,23 @@ Fix everything it reports. The release workflow runs the same check.
 
 ## Site rules (enforced by the script above)
 
-- Five public pages: Home, Simulators, How It Works, Showroom, Contact. Plus
+- Five public pages: Home, Services, Process, Showroom, Contact. Plus
   /thank-you/ (form landing) and 404, both noindex. Keep the site small.
 - Same menu on every page; one phone number, (513) 886-6654.
 - No email address on the site: E9 has no working mailbox yet (Nov 2026).
   Visitors use the contact form. Add an address only once it is confirmed to
   receive mail.
-- One palette, defined in css/site.css: pine #12343A, turf #2F6B3A, oak #C08A4E,
-  cream #F6F3EC, ink #172426. No inline colours outside that set.
+- One palette, defined in css/site.css: black #0E0E0E, ink #141414, ivory
+  #F7F3EC, red #C8102E (buttons, accent lines), red-light #FF6B6B (small red
+  text on dark), red-dark #B30E29 (small red text on light). Red stays small:
+  never large red areas. Headings Inter Display Light; body Inter (self-hosted
+  in /fonts).
+- Header shows the name "EMERGENCY NINE DESIGN" (no logo). The full logo
+  appears once, large, in the home-page hero. Tab icon = the logo mark
+  (favicon.svg / .ico / apple-touch-icon; bump ?v= in the <head> links when it
+  changes).
+- **American English** everywhere (color, center, practice, gray). The site
+  rules flag common British spellings.
 - Every page: one h1, title, meta description, canonical, viewport.
 - Every image has alt text and width/height. Photos ship as .jpg plus -sm/-lg .webp.
 - No breadcrumbs. Every opened tag closes in order. JSON-LD must parse.

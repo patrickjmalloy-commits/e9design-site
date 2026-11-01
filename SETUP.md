@@ -6,7 +6,7 @@
 
 ## What this is
 
-A new static website for E9 Design (Emergency Nine Design, golf simulators, Mason OH) has been built and is waiting to be published. Right now the code exists only inside a temporary cloud session. Your job is to set up GitHub and Netlify in the browser so the code can be pushed and published, using the same release process as the Revelance site:
+A new static website for Emergency Nine Design (E9, design/build of golf entertainment spaces, Mason OH) has been built and is waiting to be published. Right now the code exists only inside a temporary cloud session. Your job is to set up GitHub and Netlify in the browser so the code can be pushed and published, using the same release process as the Revelance site:
 
 - the `staging` branch publishes to a Netlify **staging** site, for review;
 - the `main` branch publishes to the **live** site (e9design.net);
@@ -102,7 +102,7 @@ Note: e9design.net currently points to an old WordPress host (IP 66.96.162.129),
 
 ## Part 4: Review and approve the first release (Patrick, about 5 minutes)
 
-1. Patrick opens the staging URL and checks every page: Home, Simulators, How It Works, Showroom, Contact. He sends a test message through the contact form; it should land on a "Thanks" page and appear under Netlify → Forms.
+1. Patrick opens the staging URL and checks every page: Home, Services, Process, Showroom, Contact. He sends a test message through the contact form; it should land on a "Thanks" page and appear under Netlify → Forms.
 2. In GitHub: `e9design-site` → **Actions** → latest **Promote staging to production** run. If it ran before `STAGING_URL` existed, click **Re-run all jobs** so the staging smoke test runs.
 3. When it shows **Waiting for review**, click **Review deployments → tick production → Approve and deploy.** Only Patrick should click this.
 4. The run creates the `main` branch. Now go back and finish **Part 3c**.

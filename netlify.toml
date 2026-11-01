@@ -6,26 +6,36 @@
   # cover every spelling; deleting the files from the deploy does.
   command = "rm -f CLAUDE.md README.md SETUP.md .gitignore"
 
+# Pages renamed in the Nov 2026 redesign
+[[redirects]]
+  from = "/simulators/*"
+  to = "/services/"
+  status = 301
+[[redirects]]
+  from = "/how-it-works/*"
+  to = "/process/"
+  status = 301
+
 # Old WordPress pages -> new pages (keeps any Google links and bookmarks working)
 [[redirects]]
   from = "/technology-and-innovation/*"
-  to = "/simulators/"
+  to = "/services/"
   status = 301
 [[redirects]]
   from = "/services/*"
-  to = "/simulators/"
+  to = "/services/"
   status = 301
 [[redirects]]
   from = "/design/*"
-  to = "/how-it-works/"
+  to = "/process/"
   status = 301
 [[redirects]]
   from = "/installation/*"
-  to = "/how-it-works/"
+  to = "/process/"
   status = 301
 [[redirects]]
   from = "/lessons/*"
-  to = "/simulators/"
+  to = "/services/"
   status = 301
 [[redirects]]
   from = "/about-us/*"
