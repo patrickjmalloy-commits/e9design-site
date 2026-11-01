@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: promote-production
@@ -69,8 +70,27 @@ jobs:
           done
           echo "QA PASS"
 
-  promote:
+  # Refuse to promote unless "production" exists AND requires a reviewer.
+  # (A job that names a missing environment would silently create it with no
+  # protection, so this check runs first, outside the environment.)
+  environment-guard:
     needs: qa
+    if: needs.qa.outputs.pending == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          r=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/environments/production") \
+            || { echo "The 'production' environment does not exist yet; refusing to promote."; exit 1; }
+          echo "$r" | python3 -c 'import json,sys; e=json.load(sys.stdin); ok=any(p.get("type")=="required_reviewers" and p.get("reviewers") for p in e.get("protection_rules",[])); sys.exit(0 if ok else 1)' \
+            || { echo "'production' has no required reviewers; refusing to promote."; exit 1; }
+          echo "production requires reviewer approval"
+
+  promote:
+    needs: [qa, environment-guard]
     if: needs.qa.outputs.pending == 'true'
     runs-on: ubuntu-latest
     environment:
