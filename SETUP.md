@@ -137,6 +137,39 @@ From then on, every change works this way: push to `staging` → check the stagi
 
 ---
 
+## Part 6: Email forwarding for info@e9design.net (browser, with Patrick)
+
+**Goal:** mail sent to `info@e9design.net` arrives in an inbox Patrick already reads. **Ask Patrick for the destination address**; never guess it. Forwarding only receives: replies will come from Patrick's own address. That's expected.
+
+This part is independent of Part 5. It can be done before or after the website switch.
+
+### 6a. Check Domain.com first (no DNS changes)
+
+1. Patrick signs in at https://www.domain.com.
+2. Open the e9design.net domain and look for **Email**, **Email Forwarding** or **Mailboxes**.
+3. Report exactly what you see: whether forwarding is included free, needs a paid upgrade (and the price shown), or isn't offered. **Do not buy anything.** Patrick decides.
+4. If free forwarding is included: create `info@e9design.net` → Patrick's destination address. Then skip to 6c.
+
+### 6b. Otherwise, use ImprovMX (free plan)
+
+1. Go to https://improvmx.com. Patrick creates the account himself (his email and password; don't fill them in).
+2. Add domain `e9design.net`, and alias `info` → Patrick's destination address.
+3. ImprovMX will show the DNS records it needs (normally two MX records and one SPF TXT record). **Use the exact values ImprovMX shows on screen.**
+4. At Domain.com → DNS for e9design.net, **show Patrick the current records first** (copy them into this chat). Then:
+   - **MX records:** delete the existing two (`m1.dnsix.com` and `mx.e9design.net`) and add the two ImprovMX MX records. Patrick has said no E9 mailboxes are in use, but confirm with him before deleting.
+   - **SPF (TXT starting with `v=spf1`):** a domain may have only one SPF record. **Don't add a second one.** Edit the existing record and add ImprovMX's `include:` part to it, e.g. `v=spf1 include:spf.improvmx.com ip4:66.96.128.0/18 include:websitewelcome.com ~all`. (Use ImprovMX's include value if it differs.)
+   - Leave the website records (`@`, `www`) and the `mx` host record alone.
+5. Back in ImprovMX, click **Check again / Refresh** until the domain shows as verified. This can take from minutes to a few hours.
+
+### 6c. Test
+
+1. Patrick sends an email **from a different account** (e.g. a phone's other email app or a friend) to `info@e9design.net`. Forwarders often hide messages you send to yourself.
+2. Confirm it arrives in the destination inbox (check spam too).
+
+**Report:** which option was used, the DNS records before and after, and the test result. Then Patrick tells the Claude Code session "info@ forwarding works". It will put the address back on the website and can point form notifications to it.
+
+---
+
 ## Afterwards (optional)
 
 - **Google Search Console:** add the property `https://e9design.net` and submit `https://e9design.net/sitemap.xml`.
