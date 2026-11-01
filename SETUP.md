@@ -186,6 +186,6 @@ This part is independent of Part 5. It can be done before or after the website s
 | GitHub variable | `STAGING_URL` = staging site URL |
 | Netlify staging site | `e9design-staging` → branch `staging` |
 | Netlify live site | `e9design` → branch `main` → domain e9design.net |
-| Build settings | no build command, publish directory `.` |
+| Build settings | leave the build command empty in the Netlify UI (netlify.toml supplies one that strips repo notes), publish directory `.` |
 | Contact form | Netlify Forms, form name `contact`, notifications → an inbox Patrick reads (not info@/support@, which don't exist) |
 | Old site | WordPress at 66.96.162.129; keep for 30 days after switch |

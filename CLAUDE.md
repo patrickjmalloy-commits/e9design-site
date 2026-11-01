@@ -5,6 +5,12 @@ Mason OH. Hosted on Netlify. `staging` deploys to the Netlify staging site;
 `main` is production (e9design.net) and only moves when Patrick approves the
 "Promote staging to production" workflow. Never push or merge to `main` directly.
 
+## Repo notes are never published
+
+Netlify serves file names in any letter case, so the build command in
+netlify.toml deletes CLAUDE.md, README.md and SETUP.md from each deploy. Any
+new .md file at the root must be added to that command (the site rules check).
+
 ## Before pushing to staging
 
     python3 .github/scripts/site_rules.py

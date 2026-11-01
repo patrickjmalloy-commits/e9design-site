@@ -139,6 +139,17 @@ def check_css(errors):
                 errors.append(f'css/site.css: {var} is {v}; brand standard is {want}')
 
 
+def check_repo_files(errors):
+    # Repo notes (CLAUDE.md, SETUP.md, README.md) sit in the publish folder, and
+    # Netlify serves any spelling of their names. The build command deletes them.
+    toml = open('netlify.toml', encoding='utf-8').read()
+    m = re.search(r'(?m)^\s*command\s*=\s*"([^"]*)"', toml)
+    cmd = m.group(1) if m else ''
+    for f in sorted(os.listdir('.')):
+        if f.lower().endswith('.md') and f not in cmd.split():
+            errors.append(f'{f}: would be published; add it to the build command in netlify.toml')
+
+
 def main():
     errors = []
     files = pages()
@@ -146,6 +157,7 @@ def main():
         with open(p, encoding='utf-8') as fh:
             check(p, fh.read(), errors)
     check_css(errors)
+    check_repo_files(errors)
     if errors:
         print(f'Site rules: {len(errors)} problem(s)')
         for e in errors:

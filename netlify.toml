@@ -1,25 +1,10 @@
 # E9 Design — Netlify configuration
 [build]
   publish = "."
-
-# Repo-only files are not pages
-[[redirects]]
-  from = "/CLAUDE.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/SETUP.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/README.md"
-  to = "/404.html"
-  status = 404
-  force = true
+  # Repo-only files must never be published. Netlify serves paths
+  # case-insensitively (/setup.md finds SETUP.md), so per-path 404 rules can't
+  # cover every spelling; deleting the files from the deploy does.
+  command = "rm -f CLAUDE.md README.md SETUP.md .gitignore"
 
 # Old WordPress pages -> new pages (keeps any Google links and bookmarks working)
 [[redirects]]

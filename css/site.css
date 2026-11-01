@@ -178,3 +178,8 @@ textarea { min-height: 120px; resize: vertical; }
 /* Fixes: a card that is itself dark; labels on dark page headers */
 .card.dark { background: var(--pine); border-color: var(--pine); color: #fff; }
 .page-hero .eyebrow, .hero .eyebrow, .cta .eyebrow { color: #9FD08F; }
+
+/* Logo */
+.logo-img { width: 54px; height: 40px; flex: none; }
+.logo-full { display: inline-block; background: #fff; border-radius: 12px; padding: 12px 14px; }
+.logo-full img { width: 160px; height: auto; }
