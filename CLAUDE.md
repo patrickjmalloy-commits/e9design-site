@@ -28,6 +28,13 @@ Fix everything it reports. The release workflow runs the same check.
 
 E9 is a new business. Do not claim past installs, client counts, reviews,
 "most popular", response times, or staff (e.g. instructors) that do not exist.
-Illustrations in images/concept-*.svg are drawings and must keep the
-"Design concept" tag wherever they appear. No images copied from other sites.
-Regenerate concepts with `python3 .github/scripts/make_concepts.py`.
+
+Images:
+- images/ai-*.{jpg,webp} are AI-generated (Figma AI image, Nov 2026). They are
+  not E9 installs. Room photos (ai-basement, ai-garage, ai-commercial,
+  ai-home-swing) are shown as examples of what E9 designs; where a room photo
+  sits beside copy about E9's work, it keeps the "Design concept" tag. Never
+  caption an AI image as a client project or as E9 staff.
+- showroom-*, simulator-bay are real photos of the Emergency 9 room in Mason.
+- No images copied from other sites. Replace AI images with real install photos
+  as projects are completed.
