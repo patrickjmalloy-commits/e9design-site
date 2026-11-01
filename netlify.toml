@@ -1,0 +1,84 @@
+# E9 Design — Netlify configuration
+[build]
+  publish = "."
+
+# Repo-only files are not pages
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Old WordPress pages -> new pages (keeps any Google links and bookmarks working)
+[[redirects]]
+  from = "/technology-and-innovation/*"
+  to = "/simulators/"
+  status = 301
+[[redirects]]
+  from = "/services/*"
+  to = "/simulators/"
+  status = 301
+[[redirects]]
+  from = "/design/*"
+  to = "/how-it-works/"
+  status = 301
+[[redirects]]
+  from = "/installation/*"
+  to = "/how-it-works/"
+  status = 301
+[[redirects]]
+  from = "/lessons/*"
+  to = "/simulators/"
+  status = 301
+[[redirects]]
+  from = "/about-us/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/contact-us/*"
+  to = "/contact/"
+  status = 301
+[[redirects]]
+  from = "/feed/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/404.html"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# www -> bare domain
+[[redirects]]
+  from = "https://www.e9design.net/*"
+  to = "https://e9design.net/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

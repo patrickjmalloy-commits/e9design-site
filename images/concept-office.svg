@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Design concept: office or commercial golf simulator lounge"><title>Design concept: office or commercial golf simulator lounge</title>
+<polygon points="0,0 1200,0 870,170 330,170" fill="#EEECE7" />
+<polygon points="0,0 330,170 330,520 0,800" fill="#E4E1DA" />
+<polygon points="1200,0 870,170 870,520 1200,800" fill="#DCD8D0" />
+<polygon points="330,520 870,520 1200,800 0,800" fill="#B79466" />
+<rect x="330" y="170" width="540" height="350" fill="#15302F"/>
+<line x1="390" y1="520" x2="133" y2="800" stroke="#A6845A" stroke-width="2"/>
+<line x1="450" y1="520" x2="267" y2="800" stroke="#A6845A" stroke-width="2"/>
+<line x1="510" y1="520" x2="400" y2="800" stroke="#A6845A" stroke-width="2"/>
+<line x1="570" y1="520" x2="533" y2="800" stroke="#A6845A" stroke-width="2"/>
+<line x1="630" y1="520" x2="667" y2="800" stroke="#A6845A" stroke-width="2"/>
+<line x1="690" y1="520" x2="800" y2="800" stroke="#A6845A" stroke-width="2"/>
+<line x1="750" y1="520" x2="933" y2="800" stroke="#A6845A" stroke-width="2"/>
+<line x1="810" y1="520" x2="1067" y2="800" stroke="#A6845A" stroke-width="2"/>
+<ellipse cx="446" cy="120" rx="16" ry="5" fill="#FFF4D6" opacity=".9"/>
+<ellipse cx="400" cy="61" rx="21" ry="7" fill="#FFF4D6" opacity=".9"/>
+<ellipse cx="754" cy="120" rx="16" ry="5" fill="#FFF4D6" opacity=".9"/>
+<ellipse cx="800" cy="61" rx="21" ry="7" fill="#FFF4D6" opacity=".9"/>
+<rect x="382" y="192" width="436" height="316" fill="#111" rx="3"/>
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB6E0"/><stop offset="1" stop-color="#D9ECF7"/></linearGradient><clipPath id="scr"><rect x="390" y="200" width="420" height="300"/></clipPath></defs>
+<g clip-path="url(#scr)">
+<rect x="390" y="200" width="420" height="300" fill="url(#sky)"/>
+<path d="M390 365.0 Q495.0 305.0 579.0 350.0 T810 335.0 V500 H390Z" fill="#6E9A62"/>
+<path d="M390 404.0 Q600.0 374.0 810 398.0 V500 H390Z" fill="#4E8A45"/>
+<path d="M566.4 500 L595.8 386.0 L612.6 386.0 L650.4 500Z" fill="#7DBA5E"/>
+<line x1="608.4" y1="386.0" x2="608.4" y2="350.0" stroke="#fff" stroke-width="2"/>
+<polygon points="608.4,350.0 625.2,356.0 608.4,362.0" fill="#D9473B"/>
+<path d="M600.0 494 Q587.4 260.0 608.4 374.0" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 5" opacity=".8"/>
+</g>
+<polygon points="481.20000000000005,520 718.8,520 808.824,693.6 391.17600000000004,693.6" fill="#3F7A3E" />
+<polygon points="534.624,637.6 665.376,637.6 672.7679999999998,676.8 527.232,676.8" fill="#5FA058" />
+<circle cx="600" cy="654" r="5" fill="#fff"/>
+<rect x="704" y="638" width="34" height="24" rx="3" fill="#222"/><rect x="710" y="644" width="22" height="10" rx="2" fill="#3A6EA5"/>
+<rect x="594.0" y="0" width="12" height="58" fill="#333"/><rect x="560.0" y="56" width="80" height="28" rx="5" fill="#2A2A2A"/><circle cx="600.0" cy="71" r="7" fill="#556"/>
+<polygon points="870,170 1200,0 1200,800 870,520" fill="#BFD7DF" opacity=".55"/>
+<line x1="952" y1="128" x2="952" y2="590" stroke="#8FA9B2" stroke-width="3"/>
+<line x1="1035" y1="85" x2="1035" y2="660" stroke="#8FA9B2" stroke-width="3"/>
+<line x1="1118" y1="42" x2="1118" y2="730" stroke="#8FA9B2" stroke-width="3"/>
+<path d="M90 640 q90 -50 180 0 v110 h-180z" fill="#2F5D50"/><rect x="105" y="690" width="150" height="40" rx="10" fill="#3C7263"/>
+<path d="M300 640 q90 -50 180 0 v110 h-180z" fill="#2F5D50"/><rect x="315" y="690" width="150" height="40" rx="10" fill="#3C7263"/>
+<polygon points="70,230 230,262 230,360 70,340" fill="#1A1A1A" /><polygon points="80,242 220,270 220,350 80,330" fill="#2B5876" />
+<ellipse cx="760" cy="720" rx="120" ry="28" fill="#4A3524"/>
+</svg>
