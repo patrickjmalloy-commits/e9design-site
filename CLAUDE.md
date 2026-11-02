@@ -30,10 +30,17 @@ Fix everything it reports. The release workflow runs the same check.
 - One palette, defined in css/site.css: black #0E0E0E, ink #141414, ivory
   #F7F3EC, red #C8102E (buttons, accent lines), red-light #FF6B6B (small red
   text on dark), red-dark #B30E29 (small red text on light). Red stays small:
-  never large red areas. Headings Inter Display Light; body Inter (self-hosted
-  in /fonts).
+  never large red areas. Headings Playfair Display with one italic accent
+  phrase per heading; body Inter. Both self-hosted in /fonts (OFL, see
+  fonts/README.txt). Serif numbers must use lining figures.
 - Header shows the name "EMERGENCY NINE DESIGN" (no logo). The full logo
-  appears once, large, in the home-page hero. Tab icon = the logo mark
+  appears once, in the home-page hero. The home hero follows the Revelance
+  hero style: full-screen real showroom photo (showroom-wide), dark gradient,
+  grain, centered serif headline, facts row. Inner pages use a photo header
+  band; don't repeat the same photo twice on one page.
+- List markers (.checks) are pixel-positioned so they render identically;
+  keep line-height in px if you change them.
+- Tab icon = the logo mark
   (favicon.svg / .ico / apple-touch-icon; bump ?v= in the <head> links when it
   changes).
 - **American English** everywhere (color, center, practice, gray). The site
