@@ -6,6 +6,7 @@ Exits 1 and lists every violation if any rule fails. The promote-production
 workflow runs this on each staging push, so a failing page blocks the
 approval request. Same idea as the Revelance site rules, trimmed for E9.
 """
+import hashlib
 import json
 import os
 import re
@@ -100,6 +101,16 @@ def check(path, s, errors):
             err(f'image without alt text: {img[:80]}')
         if 'width=' not in img or 'height=' not in img:
             err(f'image without width/height (causes layout shift): {img[:80]}')
+
+    # 5b. Stylesheet link carries the current version code (?v= first 10 hex
+    #     of the CSS file's md5), so browsers never pair new pages with a
+    #     cached old stylesheet.
+    want = hashlib.md5(open('css/site.css', 'rb').read()).hexdigest()[:10]
+    m = re.search(r'href="/css/site\.css\?v=([0-9a-f]+)"', s)
+    if not m:
+        err('stylesheet link has no ?v= version code')
+    elif m.group(1) != want:
+        err(f'stylesheet version code is {m.group(1)}; css/site.css is now {want} (rebuild pages after CSS edits)')
 
     # 6. Indexing: only the thank-you and 404 pages are noindex.
     noindex = 'noindex' in s

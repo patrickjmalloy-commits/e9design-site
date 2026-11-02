@@ -43,6 +43,9 @@ Fix everything it reports. The release workflow runs the same check.
 - Tab icon = the logo mark
   (favicon.svg / .ico / apple-touch-icon; bump ?v= in the <head> links when it
   changes).
+- Pages link the stylesheet as /css/site.css?v=<first 10 hex of its md5>.
+  After any CSS edit, update the code on every page (the site rules check),
+  or browsers keep the cached old stylesheet for up to an hour.
 - **American English** everywhere (color, center, practice, gray). The site
   rules flag common British spellings.
 - Every page: one h1, title, meta description, canonical, viewport.
