@@ -283,3 +283,42 @@ h1, h2, h3, .hero-facts b, .facts b, .panel dd a, .faq summary, .step::before { 
   .facts div:nth-child(odd) { padding-left: 0; }
   .panel { padding: 32px 26px; }
 }
+
+/* Edge-to-edge split: the photo fills its half of the section, text beside it */
+section.bleed { padding: 0; }
+section.bleed > .wrap.split { max-width: none; padding: 0; gap: 0; align-items: stretch; grid-template-columns: 1fr 1fr; }
+section.bleed > .wrap.split > div { padding: clamp(64px, 8vw, 128px) clamp(28px, 6vw, 96px); align-self: center; max-width: 660px; }
+section.bleed > .wrap.split:not(.flip) > div { justify-self: end; }
+section.bleed > .wrap.split > figure.photo { height: 100%; min-height: 560px; }
+section.bleed > .wrap.split > figure.photo picture, section.bleed > .wrap.split > figure.photo img { height: 100%; }
+section.bleed > .wrap.split > figure.photo img { aspect-ratio: auto; object-fit: cover; }
+.focus-right img { object-position: 64% 50%; }
+@media (max-width: 880px) {
+  section.bleed > .wrap.split { grid-template-columns: 1fr; }
+  section.bleed > .wrap.split > figure.photo { min-height: 0; height: auto; order: -1; }
+  section.bleed > .wrap.split > figure.photo img { aspect-ratio: 4 / 3; height: auto; }
+  section.bleed > .wrap.split > div { max-width: none; padding: 56px 28px 72px; justify-self: stretch; }
+}
+
+/* Phone: home hero and header */
+@media (max-width: 600px) {
+  .hero { min-height: 0; padding: 48px 0 64px; }
+  .hero-logo { padding: 9px 11px; margin-bottom: 26px; }
+  .hero-logo img { width: 84px; }
+  .hero h1 { font-size: 2.15rem; margin-bottom: 18px; }
+  .hero .lead { font-size: 1rem; }
+  .hero-facts { display: none; }
+  .hero .actions, .page-hero .actions { flex-direction: column; align-items: stretch; }
+  .hero .actions .btn, .page-hero .actions .btn { text-align: center; }
+  .page-hero { padding: 72px 0 60px; }
+  .page-hero h1 { font-size: 2.15rem; }
+  h2 { font-size: 1.85rem; }
+}
+@media (max-width: 380px) {
+  .site-header .wrap { padding: 0 18px; }
+  .brand { font-size: 9.5px; letter-spacing: .14em; }
+  .menu-toggle { padding: 8px 10px; font-size: 10px; letter-spacing: .12em; }
+  .wrap { padding: 0 20px; }
+  .eyebrow::before, .center .eyebrow::after { display: none; }
+  .hero h1, .page-hero h1 { font-size: 1.95rem; }
+}
