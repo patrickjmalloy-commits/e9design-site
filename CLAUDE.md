@@ -63,10 +63,13 @@ Images:
 - E9 mainly installs overhead launch monitors (ProTee VX). Photos must not show
   floor-standing launch monitors.
 - images/ai-*.{jpg,webp} are AI-generated (Figma AI image, Nov 2026). They are
-  not E9 installs. Room photos (ai-basement, ai-garage, ai-commercial,
+  not E9 installs. ai-screen-ball is the overhead-monitor photo cropped below
+  the ceiling camera (Patrick asked for the camera to be removed). Room photos (ai-basement, ai-garage, ai-commercial,
   ai-home-swing) are shown as examples of what E9 designs; where a room photo
   sits beside copy about E9's work, it keeps the "Design concept" tag. Never
   caption an AI image as a client project or as E9 staff.
 - showroom-*, simulator-bay are real photos of the Emergency 9 room in Mason.
+- Images are cached by browsers for a year (netlify.toml). Never overwrite an
+  image in place; save a changed image under a new file name.
 - No images copied from other sites. Replace AI images with real install photos
   as projects are completed.
