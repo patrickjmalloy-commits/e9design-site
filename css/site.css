@@ -295,9 +295,9 @@ section.bleed > .wrap.split > figure.photo img { aspect-ratio: auto; object-fit:
 .focus-right img { object-position: 64% 50%; }
 @media (max-width: 880px) {
   section.bleed > .wrap.split { grid-template-columns: 1fr; }
-  section.bleed > .wrap.split > figure.photo { min-height: 0; height: auto; order: -1; }
+  section.bleed > .wrap.split > figure.photo { min-height: 0; height: auto; order: 2; }
   section.bleed > .wrap.split > figure.photo img { aspect-ratio: 4 / 3; height: auto; }
-  section.bleed > .wrap.split > div { max-width: none; padding: 56px 28px 72px; justify-self: stretch; }
+  section.bleed > .wrap.split > div { max-width: none; padding: 60px 28px 56px; justify-self: stretch; order: 1; }
 }
 
 /* Phone: home hero and header */
